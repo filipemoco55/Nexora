@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Página Não Encontrada | Nexora Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/global.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <style>
+    .not-found-wrapper { padding: var(--space-16) 0; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .not-found-title { font-size: clamp(4rem, 10vw, 7rem); font-weight: 800; background: linear-gradient(135deg, var(--accent-rose) 0%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+  <main class="not-found-wrapper">
+    <div class="container container-sm">
+      <div class="card card-glass" style="padding: var(--space-8);">
+        <span class="badge badge-danger badge-md">Erro 404 • Rota Não Encontrada</span>
+        <h1 class="not-found-title">404</h1>
+        <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-4);">Página Inexistente</h2>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-6);">A página que está a tentar aceder não existe ou foi movida.</p>
+        <a href="index.html" class="btn btn-primary"><i data-lucide="home"></i><span>Voltar à Página Inicial</span></a>
+      </div>
+    </div>
+  </main>
+  <div id="footer-container"></div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

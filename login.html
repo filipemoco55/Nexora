@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Área de Cliente — Nexora Digital</title>
+  <meta name="description"
+    content="Aceda à sua conta da plataforma Nexora Digital para acompanhar projetos, consultar propostas e faturas." />
+
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/global.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/pages/login.css" />
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="login-page">
+    <div class="container container-sm">
+      <div class="login-card-container">
+        <!-- Brand Title Header -->
+        <div class="login-brand-header">
+          <a href="index.html" class="login-brand-link">
+            <div class="brand-icon-box"><i data-lucide="cpu"></i></div>
+            <div class="brand-text">
+              <span class="brand-name">NEXORA</span>
+              <span class="brand-tag">PLATFORM</span>
+            </div>
+          </a>
+          <h1 class="login-title" id="auth-form-title">Aceder à Área de Cliente</h1>
+          <p class="login-subtitle" id="auth-form-subtitle">Introduza as suas credenciais para aceder ao painel.</p>
+        </div>
+
+        <!-- Interface Notice Banner -->
+        <div class="login-roadmap-notice">
+          <i data-lucide="shield-alert" class="notice-icon"></i>
+          <span>Interface visual da Área de Cliente. A autenticação real via <strong>Supabase Auth</strong> será ligada na próxima etapa.</span>
+        </div>
+
+        <!-- Auth Card -->
+        <div class="card card-glass auth-card">
+          <div class="card-body">
+            <form id="login-form" class="auth-form">
+              <div class="input-field-wrapper">
+                <label for="login-email" class="input-label">Email da Empresa / Utilizador</label>
+                <input type="email" id="login-email" class="input-control" placeholder="exemplo@empresa.pt" required />
+              </div>
+
+              <div class="input-field-wrapper">
+                <label for="login-password" class="input-label">Palavra-passe</label>
+                <input type="password" id="login-password" class="input-control" placeholder="••••••••••••" required />
+              </div>
+
+              <div class="forgot-password-row">
+                <button type="button" class="forgot-link">Recuperar palavra-passe?</button>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full-width btn-lg" id="auth-submit-btn">
+                <span>Entrar no Portal</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </form>
+
+            <!-- Notice Box View -->
+            <div id="auth-notice-box" class="auth-notice-box" style="display: none;">
+              <span class="badge badge-cyan badge-md">Modo de Demonstração</span>
+              <h3>Autenticação em Preparação</h3>
+              <p>A interface da plataforma foi validada! Nas próximas etapas, este formulário estará ligado à base de dados do <strong>Supabase</strong> para acesso real à sua conta.</p>
+              <div class="notice-actions">
+                <button type="button" class="btn btn-outline btn-sm" id="reset-auth-btn">Voltar ao Formulário</button>
+                <a href="dashboard.html" class="btn btn-primary btn-sm">
+                  <span>Ver Preview do Dashboard</span>
+                  <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Toggle Footer -->
+            <div class="auth-toggle-footer">
+              <p>Ainda não tem conta? <button type="button" class="toggle-mode-btn" id="toggle-auth-mode-btn">Criar nova conta</button></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capabilities Summary -->
+        <div class="client-portal-features-summary">
+          <h4 class="summary-title">No Portal Nexora poderá futuramente:</h4>
+          <div class="summary-tags-grid">
+            <span>✓ Acompanhar estado dos Projetos</span>
+            <span>✓ Consultar e aprovar Propostas</span>
+            <span>✓ Aceder a Faturas e Recibos</span>
+            <span>✓ Gerir Pagamentos e Subscrições</span>
+            <span>✓ Enviar Mensagens diretas à equipa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
