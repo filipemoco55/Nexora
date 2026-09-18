@@ -20,21 +20,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Stylesheets -->
-  <script type="module" crossorigin src="/assets/main-hnA33W3c.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-Bp8IAGlI.css">
-  <link rel="stylesheet" crossorigin href="/assets/footer-D94b6JXt.css">
-  <link rel="stylesheet" crossorigin href="/assets/home-DcDW6UxQ.css">
+  <script type="module" crossorigin src="/assets/main-Cjs61chb.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DIex9Z-U.css">
+  <link rel="stylesheet" crossorigin href="/assets/footer-CO1o59cD.css">
+  <link rel="stylesheet" crossorigin href="/assets/home-HSDZmSAL.css">
 </head>
 
 <body>
-  <!-- SPLASH / LANDING NEXORA -->
+  <!-- SPLASH / LANDING NEXORA ANIMATION -->
   <div id="nexora-intro" class="nexora-intro" aria-hidden="true">
     <div class="intro-content">
+      <div class="intro-logo-mark">
+        <svg class="intro-svg-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 24V8L21 24V8" stroke="#F5F5F5" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="miter"/>
+          <path d="M21 8L25 12V24" stroke="#E10600" stroke-width="2.8" stroke-linecap="square"/>
+        </svg>
+      </div>
       <span class="intro-wordmark">NEXORA</span>
+      <span class="intro-tagline">MARKETING · UI/UX · TECNOLOGIA</span>
       <div class="intro-red-line"></div>
     </div>
   </div>
@@ -48,23 +55,31 @@
     <section class="hero-section">
       <canvas id="bg-particles-canvas"></canvas>
 
+      <!-- Corner Technical Ticks -->
+      <div class="hero-corner-tick top-left"></div>
+      <div class="hero-corner-tick top-right"></div>
+
       <div class="container hero-grid">
         <div class="hero-text-col reveal-on-scroll">
-          <span class="hero-eyebrow">NEXORA DIGITAL</span>
+          <div class="hero-eyebrow-wrapper">
+            <span class="eyebrow-dot"></span>
+            <span class="hero-eyebrow">MARKETING · UI/UX · TECNOLOGIA</span>
+          </div>
           <h1 class="hero-headline">
-            Tecnologia que faz <br />
-            o seu negócio <span class="hero-red-text">avançar.</span>
+            Estratégia, design e tecnologia <br />
+            para fazer o seu negócio <br />
+            <span class="hero-red-text">avançar.</span>
           </h1>
           <p class="hero-copy">
-            Websites, sistemas, automações e inteligência artificial para empresas que querem evoluir.
+            Criamos marcas, experiências digitais e soluções tecnológicas que ajudam negócios a crescer.
           </p>
           <div class="hero-actions">
             <a href="contacto.html" class="btn btn-primary btn-lg">
-              <span>Pedir orçamento</span>
+              <span>Falar com a Nexora</span>
               <i data-lucide="arrow-right"></i>
             </a>
-            <a href="portfolio.html" class="btn btn-outline btn-lg">
-              <span>Explorar projetos</span>
+            <a href="servicos.html" class="btn btn-outline btn-lg">
+              <span>Ver serviços</span>
               <i data-lucide="arrow-right"></i>
             </a>
           </div>
@@ -72,6 +87,33 @@
 
         <div class="hero-visual-col reveal-on-scroll">
           <div id="hero-planet-canvas" class="hero-planet-container"></div>
+        </div>
+      </div>
+
+      <!-- Hero Bottom Information (Editorial Metadata Bar) -->
+      <div class="container hero-bottom-bar reveal-on-scroll">
+        <div class="hero-meta-item">
+          <span class="meta-num">01</span>
+          <div class="meta-text">
+            <h4 class="meta-title">MARKETING</h4>
+            <p class="meta-desc">Estratégia e crescimento</p>
+          </div>
+        </div>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="meta-num">02</span>
+          <div class="meta-text">
+            <h4 class="meta-title">UI/UX</h4>
+            <p class="meta-desc">Design e experiências digitais</p>
+          </div>
+        </div>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="meta-num">03</span>
+          <div class="meta-text">
+            <h4 class="meta-title">TECNOLOGIA</h4>
+            <p class="meta-desc">Web, sistemas e automação</p>
+          </div>
         </div>
       </div>
     </section>
@@ -83,7 +125,7 @@
           <div class="positioning-left-num">01</div>
           <div class="positioning-right-content">
             <span class="section-tag-red">POSICIONAMENTO</span>
-            <h2 class="positioning-title">Tecnologia pensada para fazer negócios avançar.</h2>
+            <h2 class="positioning-title">Tecnologia criada para fazer negócios avançar.</h2>
             <p class="positioning-text">
               Criamos experiências digitais, sistemas e automações pensadas para resolver problemas reais e fazer negócios avançar.
             </p>
@@ -108,25 +150,37 @@
         <div class="services-editorial-list">
           <a href="servicos.html" class="service-item-row reveal-on-scroll">
             <span class="service-item-num">01</span>
-            <h3 class="service-item-name">Websites</h3>
+            <div class="service-item-content">
+              <h3 class="service-item-name">WEBSITES</h3>
+              <p class="service-item-sub">Presença digital com impacto.</p>
+            </div>
             <i data-lucide="arrow-up-right" class="service-arrow-icon"></i>
           </a>
 
           <a href="servicos.html" class="service-item-row reveal-on-scroll">
             <span class="service-item-num">02</span>
-            <h3 class="service-item-name">Sistemas Web</h3>
+            <div class="service-item-content">
+              <h3 class="service-item-name">SISTEMAS WEB</h3>
+              <p class="service-item-sub">Ferramentas feitas à medida.</p>
+            </div>
             <i data-lucide="arrow-up-right" class="service-arrow-icon"></i>
           </a>
 
           <a href="servicos.html" class="service-item-row reveal-on-scroll">
             <span class="service-item-num">03</span>
-            <h3 class="service-item-name">Automações</h3>
+            <div class="service-item-content">
+              <h3 class="service-item-name">AUTOMAÇÕES</h3>
+              <p class="service-item-sub">Menos tarefas manuais.</p>
+            </div>
             <i data-lucide="arrow-up-right" class="service-arrow-icon"></i>
           </a>
 
           <a href="servicos.html" class="service-item-row reveal-on-scroll">
             <span class="service-item-num">04</span>
-            <h3 class="service-item-name">Integrações com IA</h3>
+            <div class="service-item-content">
+              <h3 class="service-item-name">IA & INTEGRAÇÕES</h3>
+              <p class="service-item-sub">Tecnologia aplicada ao negócio.</p>
+            </div>
             <i data-lucide="arrow-up-right" class="service-arrow-icon"></i>
           </a>
         </div>
@@ -243,7 +297,7 @@
 
         <div class="section-footer-link reveal-on-scroll">
           <a href="portfolio.html" class="editorial-more-link">
-            <span>Ver portfólio completo</span>
+            <span>Ver todos os projetos</span>
             <i data-lucide="arrow-right"></i>
           </a>
         </div>

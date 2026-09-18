@@ -14,7 +14,7 @@ export function initNavbar() {
     { name: 'Serviços', href: 'servicos.html' },
     { name: 'Preços', href: 'precos.html' },
     { name: 'Portfólio', href: 'portfolio.html' },
-    { name: 'Sobre nós', href: 'sobre.html' },
+    { name: 'Sobre', href: 'sobre.html' },
     { name: 'Contacto', href: 'contacto.html' },
   ];
 
@@ -24,7 +24,10 @@ export function initNavbar() {
         <!-- Zone 1: Left Brand Logo -->
         <a href="index.html" class="navbar-brand" aria-label="Página Inicial Nexora Digital">
           <div class="brand-icon-box">
-            <i data-lucide="cpu"></i>
+            <svg class="brand-logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 24V8L21 24V8" stroke="#F5F5F5" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="miter"/>
+              <path d="M21 8L25 12V24" stroke="#E10600" stroke-width="2.8" stroke-linecap="square"/>
+            </svg>
           </div>
           <div class="brand-text">
             <span class="brand-name">NEXORA</span>

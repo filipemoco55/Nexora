@@ -21,39 +21,39 @@ function initBrandIntro() {
   const introEl = document.getElementById('nexora-intro');
   if (!introEl) return;
 
-  const hasSeenIntro = sessionStorage.getItem('nexoraIntroSeen');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (hasSeenIntro || prefersReducedMotion) {
+  if (prefersReducedMotion) {
     introEl.style.display = 'none';
     document.body.classList.remove('intro-active');
-    if (prefersReducedMotion) {
-      sessionStorage.setItem('nexoraIntroSeen', 'true');
-    }
     return;
   }
 
-  // Lock document scroll during splash sequence
+  // Lock document scroll during 2.5s splash sequence
   document.body.classList.add('intro-active');
+  introEl.style.display = 'flex';
 
-  // Animation timeline (~0.9s)
+  // Animation timeline (~2.5s duration)
   setTimeout(() => {
     introEl.classList.add('phase-logo-in');
-  }, 80);
+  }, 150);
+
+  setTimeout(() => {
+    introEl.classList.add('phase-tagline-in');
+  }, 600);
 
   setTimeout(() => {
     introEl.classList.add('phase-line-in');
-  }, 300);
+  }, 1000);
 
   setTimeout(() => {
     introEl.classList.add('phase-fade-out');
-  }, 750);
+  }, 2000);
 
   setTimeout(() => {
     introEl.style.display = 'none';
     document.body.classList.remove('intro-active');
-    sessionStorage.setItem('nexoraIntroSeen', 'true');
-  }, 950);
+  }, 2500);
 }
 
 /**

@@ -159,16 +159,17 @@ function initBackgroundParticles(canvasId, reducedMotion) {
 }
 
 /**
- * 2. Three.js WebGL Tech Planet (Refined Scaled & Enhanced Editorial Aesthetics)
+ * 2. Three.js WebGL Tech Planet (Cosmos-Style Hollow Semi-Transparent Dot Sphere with Red Orbital Ring)
  */
 function createWebGLPlanet(container) {
   const scene = new THREE.Scene();
 
-  const width = container.clientWidth || 420;
-  const height = container.clientHeight || 420;
+  const width = container.clientWidth || 480;
+  const height = container.clientHeight || 480;
 
-  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  camera.position.z = 5.4;
+  // Camera positioned at z = 6.4 for perfect framing with zero visual clipping
+  const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 1000);
+  camera.position.z = 6.4;
 
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -178,66 +179,32 @@ function createWebGLPlanet(container) {
 
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.innerHTML = '';
   container.appendChild(renderer.domElement);
 
   const planetGroup = new THREE.Group();
   scene.add(planetGroup);
 
-  // A. Atmospheric Red Aura Glow (Sprite Texture behind planet core)
-  const glowCanvas = document.createElement('canvas');
-  glowCanvas.width = 128;
-  glowCanvas.height = 128;
-  const glowCtx = glowCanvas.getContext('2d');
-  if (glowCtx) {
-    const gradient = glowCtx.createRadialGradient(64, 64, 0, 64, 64, 64);
-    gradient.addColorStop(0, 'rgba(225, 6, 0, 0.35)');
-    gradient.addColorStop(0.4, 'rgba(225, 6, 0, 0.12)');
-    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    glowCtx.fillStyle = gradient;
-    glowCtx.fillRect(0, 0, 128, 128);
-  }
-  const glowTexture = new THREE.CanvasTexture(glowCanvas);
-  const glowMat = new THREE.SpriteMaterial({
-    map: glowTexture,
-    transparent: true,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false,
-  });
-  const glowSprite = new THREE.Sprite(glowMat);
-  glowSprite.scale.set(4.6, 4.6, 1.0);
-  planetGroup.add(glowSprite);
-
-  // B. Planet Core Geometry: Radius 1.85 (Proportionate fit)
-  const coreGeo = new THREE.SphereGeometry(1.85, 48, 48);
-  const coreMat = new THREE.MeshBasicMaterial({
-    color: 0x080808,
-    transparent: true,
-    opacity: 0.96,
-  });
-  const coreMesh = new THREE.Mesh(coreGeo, coreMat);
-  planetGroup.add(coreMesh);
-
-  // C. Structural Wireframe Tech Grid: Radius 1.89
-  const wireGeo = new THREE.SphereGeometry(1.89, 28, 28);
+  // A. Faint Latitudinal/Longitudinal Tech Wireframe Grid (Very Soft)
+  const wireGeo = new THREE.SphereGeometry(1.74, 32, 32);
   const wireMat = new THREE.MeshBasicMaterial({
-    color: 0x262626,
+    color: 0xffffff,
     wireframe: true,
     transparent: true,
-    opacity: 0.28,
+    opacity: 0.04,
   });
   const wireMesh = new THREE.Mesh(wireGeo, wireMat);
   planetGroup.add(wireMesh);
 
-  // D. Fibonacci Particle Cloud Matrix: Radius 1.93
-  const particleCount = 1600;
+  // B. Delicate Hollow Semi-Transparent Dot Matrix Sphere (2600 Points)
+  const particleCount = 2600;
   const positions = new Float32Array(particleCount * 3);
   const colors = new Float32Array(particleCount * 3);
 
-  const radius = 1.93;
-  const colorGrey = new THREE.Color(0x666666);
-  const colorRed = new THREE.Color(0xE10600);
-  const colorBrightRed = new THREE.Color(0xFF3B30);
-  const colorWhite = new THREE.Color(0xF5F5F5);
+  const radius = 1.75;
+  const colorAccentWhite = new THREE.Color(0xF5F5F5);
+  const colorSoftGrey = new THREE.Color(0x788292);
+  const colorDarkGrey = new THREE.Color(0x282e3c);
 
   for (let i = 0; i < particleCount; i++) {
     const phi = Math.acos(-1 + (2 * i) / particleCount);
@@ -252,14 +219,12 @@ function createWebGLPlanet(container) {
     positions[i * 3 + 2] = z;
 
     const rand = Math.random();
-    let pColor = colorGrey;
+    let pColor = colorDarkGrey;
 
-    if (rand < 0.10) {
-      pColor = colorRed;
-    } else if (rand < 0.14) {
-      pColor = colorBrightRed;
-    } else if (rand < 0.32) {
-      pColor = colorWhite;
+    if (rand < 0.12) {
+      pColor = colorAccentWhite;   // Soft accent white dot
+    } else if (rand < 0.50) {
+      pColor = colorSoftGrey;      // Muted grey-blue dot
     }
 
     colors[i * 3] = pColor.r;
@@ -272,20 +237,20 @@ function createWebGLPlanet(container) {
   pointsGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
   const pointsMat = new THREE.PointsMaterial({
-    size: 0.038,
+    size: 0.026,
     vertexColors: true,
     transparent: true,
-    opacity: 0.88,
+    opacity: 0.65,
   });
 
   const pointsMesh = new THREE.Points(pointsGeo, pointsMat);
   planetGroup.add(pointsMesh);
 
-  // E. Primary Red Orbital Line Ring: Radius 2.5
+  // C. Signature Red Orbital Line Ring: Radius 2.22
   const ring1Geo = new THREE.BufferGeometry();
   const ring1Segs = 96;
   const ring1Pos = new Float32Array((ring1Segs + 1) * 3);
-  const ring1Radius = 2.5;
+  const ring1Radius = 2.22;
 
   for (let i = 0; i <= ring1Segs; i++) {
     const theta = (i / ring1Segs) * Math.PI * 2;
@@ -302,15 +267,15 @@ function createWebGLPlanet(container) {
   });
 
   const ring1Line = new THREE.Line(ring1Geo, ring1Mat);
-  ring1Line.rotation.x = Math.PI / 2.8;
-  ring1Line.rotation.y = Math.PI / 7;
+  ring1Line.rotation.x = Math.PI / 2.7;
+  ring1Line.rotation.y = Math.PI / 8;
   planetGroup.add(ring1Line);
 
-  // F. Secondary Translucent White Inner Orbital Line Ring: Radius 2.25
+  // D. Secondary Translucent White Orbital Line Ring: Radius 2.02
   const ring2Geo = new THREE.BufferGeometry();
   const ring2Segs = 80;
   const ring2Pos = new Float32Array((ring2Segs + 1) * 3);
-  const ring2Radius = 2.25;
+  const ring2Radius = 2.02;
 
   for (let i = 0; i <= ring2Segs; i++) {
     const theta = (i / ring2Segs) * Math.PI * 2;
@@ -323,94 +288,49 @@ function createWebGLPlanet(container) {
   const ring2Mat = new THREE.LineBasicMaterial({
     color: 0xF5F5F5,
     transparent: true,
-    opacity: 0.2,
+    opacity: 0.15,
   });
 
   const ring2Line = new THREE.Line(ring2Geo, ring2Mat);
   ring2Line.rotation.x = -Math.PI / 3.2;
-  ring2Line.rotation.y = -Math.PI / 5;
+  ring2Line.rotation.y = -Math.PI / 6;
   planetGroup.add(ring2Line);
 
-  // G. Orbiting Micro-Satellites / Red Tech Nodes
-  const satelliteGroup = new THREE.Group();
-  planetGroup.add(satelliteGroup);
+  // Initial Tilt & Smooth Mouse Cursor Tilt Tracking
+  let currentTiltX = 0;
+  let currentTiltY = 0;
+  let targetTiltX = 0;
+  let targetTiltY = 0;
+  let autoRotationY = 0;
 
-  const satCount = 4;
-  const satMeshes = [];
-
-  for (let s = 0; s < satCount; s++) {
-    const satGeo = new THREE.BoxGeometry(0.06, 0.06, 0.06);
-    const satMat = new THREE.MeshBasicMaterial({
-      color: s === 0 ? 0xFF2A23 : 0xE10600,
-    });
-    const satMesh = new THREE.Mesh(satGeo, satMat);
-    satMesh.userData = {
-      angle: (s / satCount) * Math.PI * 2,
-      orbitRadius: 2.5,
-      speed: 0.006 + s * 0.002,
-    };
-    satelliteGroup.add(satMesh);
-    satMeshes.push(satMesh);
-  }
-
-  // Initial planet tilt
-  planetGroup.rotation.x = 0.22;
-  planetGroup.rotation.z = -0.12;
-
-  // Interaction State (Pointer drag & tilt inertia)
-  let mouseX = 0;
-  let mouseY = 0;
-  let isDragging = false;
-  let previousMousePosition = { x: 0, y: 0 };
-  let dragVelocity = { x: 0, y: 0 };
-
-  function onDocumentMouseMove(event) {
-    if (isDragging) return;
+  function onMouseMove(event) {
     const windowHalfX = window.innerWidth / 2;
     const windowHalfY = window.innerHeight / 2;
 
-    mouseX = (event.clientX - windowHalfX) * 0.0002;
-    mouseY = (event.clientY - windowHalfY) * 0.0002;
+    const normX = (event.clientX - windowHalfX) / windowHalfX;
+    const normY = (event.clientY - windowHalfY) / windowHalfY;
+
+    // Smooth tilt limit: ±0.45 radians
+    targetTiltY = normX * 0.45;
+    targetTiltX = normY * 0.45;
   }
 
-  function onPointerDown(event) {
-    isDragging = true;
-    previousMousePosition = {
-      x: event.clientX || (event.touches && event.touches[0].clientX) || 0,
-      y: event.clientY || (event.touches && event.touches[0].clientY) || 0,
-    };
+  window.addEventListener('mousemove', onMouseMove, { passive: true });
+
+  function onTouchMove(event) {
+    if (!event.touches.length) return;
+    const touch = event.touches[0];
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+
+    const normX = (touch.clientX - windowHalfX) / windowHalfX;
+    const normY = (touch.clientY - windowHalfY) / windowHalfY;
+
+    targetTiltY = normX * 0.4;
+    targetTiltX = normY * 0.4;
   }
 
-  function onPointerMove(event) {
-    if (!isDragging) return;
-
-    const currentX = event.clientX || (event.touches && event.touches[0].clientX) || 0;
-    const currentY = event.clientY || (event.touches && event.touches[0].clientY) || 0;
-
-    const deltaX = currentX - previousMousePosition.x;
-    const deltaY = currentY - previousMousePosition.y;
-
-    dragVelocity.x = deltaX * 0.004;
-    dragVelocity.y = deltaY * 0.004;
-
-    planetGroup.rotation.y += dragVelocity.x;
-    planetGroup.rotation.x += dragVelocity.y;
-
-    previousMousePosition = { x: currentX, y: currentY };
-  }
-
-  function onPointerUp() {
-    isDragging = false;
-  }
-
-  window.addEventListener('mousemove', onDocumentMouseMove, { passive: true });
-  container.addEventListener('mousedown', onPointerDown);
-  window.addEventListener('mousemove', onPointerMove);
-  window.addEventListener('mouseup', onPointerUp);
-
-  container.addEventListener('touchstart', onPointerDown, { passive: true });
-  window.addEventListener('touchmove', onPointerMove, { passive: true });
-  window.addEventListener('touchend', onPointerUp);
+  window.addEventListener('touchmove', onTouchMove, { passive: true });
 
   function onWindowResize() {
     if (!container) return;
@@ -425,48 +345,27 @@ function createWebGLPlanet(container) {
 
   window.addEventListener('resize', onWindowResize);
 
-  // Render Loop & Layered Rotation Dynamics
+  // Render Loop: Slower smooth auto-rotation (0.0005 rad/frame) + Lerped Cursor Tilt
   let isAnimating = true;
-  let clockTime = 0;
 
   function animate() {
     if (!isAnimating) return;
 
     requestAnimationFrame(animate);
 
-    clockTime += 0.016;
+    // Very slow continuous rotation around Y axis
+    autoRotationY += 0.0005;
 
-    // Layered independent rotations for enhanced 3D visual depth
-    coreMesh.rotation.y += 0.001;
-    wireMesh.rotation.y += 0.0015;
-    pointsMesh.rotation.y -= 0.0008;
-    ring1Line.rotation.z += 0.0005;
-    ring2Line.rotation.z -= 0.0004;
+    // Smooth lerp following mouse cursor
+    currentTiltX += (targetTiltX - currentTiltX) * 0.04;
+    currentTiltY += (targetTiltY - currentTiltY) * 0.04;
 
-    // Animate Orbiting Micro-Satellites
-    satMeshes.forEach((sat) => {
-      sat.userData.angle += sat.userData.speed;
-      const a = sat.userData.angle;
-      const r = sat.userData.orbitRadius;
-      sat.position.x = r * Math.cos(a);
-      sat.position.y = r * Math.sin(a);
-      sat.position.z = Math.sin(a * 2) * 0.3;
-    });
+    planetGroup.rotation.x = 0.2 + currentTiltX;
+    planetGroup.rotation.y = autoRotationY + currentTiltY;
 
-    // Subtle scale pulse (Breathing motion)
-    const scaleFactor = 1 + Math.sin(clockTime * 1.5) * 0.012;
-    planetGroup.scale.set(scaleFactor, scaleFactor, scaleFactor);
-
-    if (!isDragging) {
-      planetGroup.rotation.y += 0.0012;
-
-      dragVelocity.x *= 0.92;
-      dragVelocity.y *= 0.92;
-      planetGroup.rotation.y += dragVelocity.x;
-      planetGroup.rotation.x += dragVelocity.y;
-
-      planetGroup.rotation.y += (mouseX - planetGroup.rotation.y * 0.03) * 0.012;
-    }
+    // Independent subtle ring rotation
+    ring1Line.rotation.z += 0.0002;
+    ring2Line.rotation.z -= 0.00015;
 
     renderer.render(scene, camera);
   }

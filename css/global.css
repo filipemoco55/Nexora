@@ -56,7 +56,10 @@ button, input, textarea, select {
   outline: none;
 }
 
-button { cursor: pointer; }
+button, .btn {
+  cursor: pointer;
+  border-radius: 0 !important;
+}
 img, svg { display: block; max-width: 100%; height: auto; }
 
 /* Focus Visible Rings for Accessibility */
