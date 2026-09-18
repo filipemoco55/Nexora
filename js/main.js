@@ -9,6 +9,7 @@ import { initModals } from './modal.js';
 import { initPortfolio } from './portfolio.js';
 import { initContactForm } from './contact.js';
 import { initLogin } from './login.js';
+import { initHomePage } from './home.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Inject Navigation & Footer
@@ -21,10 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initLogin();
 
-  // 3. Render Lucide SVG Icons for all <i data-lucide="..."></i> elements
+  // 3. Initialize Homepage Logic & Scroll Animations
+  initHomePage();
+
+  // 4. Render Lucide SVG Icons for all <i data-lucide="..."></i> elements
   createIcons({ icons });
 
-  // 4. Interactive Platform Preview Tabs on Home Page
+  // 5. Interactive Platform Preview Tabs on Home Page
   initHomePlatformTabs();
 });
 

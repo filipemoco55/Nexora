@@ -40,15 +40,16 @@
 }
 
 .brand-icon-box {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-cyan) 100%);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-elevated);
+  border: 1px solid rgba(225, 6, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+  color: var(--primary);
+  box-shadow: 0 0 12px rgba(225, 6, 0, 0.2);
 }
 
 .brand-text {
@@ -70,7 +71,7 @@
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.22em;
-  color: var(--accent-cyan);
+  color: var(--primary);
 }
 
 /* Zone 2: Center Desktop Nav Links */

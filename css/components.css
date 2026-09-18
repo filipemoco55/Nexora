@@ -25,14 +25,16 @@
 .btn-lg { padding: 0.75rem 1.6rem; font-size: var(--text-base); height: 48px; }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, #2563EB 100%);
+  background: #E10600;
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
+  box-shadow: 0 4px 14px rgba(225, 6, 0, 0.25);
+  border-color: #E10600;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.35);
+  background: #C00500;
+  border-color: #C00500;
+  box-shadow: 0 6px 18px rgba(225, 6, 0, 0.35);
 }
 
 .btn-secondary {
@@ -56,7 +58,7 @@
 .btn-outline:hover {
   border-color: var(--primary);
   background: var(--primary-light);
-  color: var(--primary);
+  color: var(--text-primary);
 }
 
 .btn-ghost {
@@ -71,7 +73,7 @@
 
 /* Cards */
 .card {
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition-normal);
   display: flex;
@@ -85,7 +87,7 @@
 }
 
 .card-glass {
-  background: rgba(17, 24, 39, 0.65);
+  background: rgba(16, 16, 16, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
@@ -103,8 +105,8 @@
 
 .card-interactive:hover,
 .card-glass:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-color: rgba(225, 6, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   transform: translateY(-2px);
 }
 
@@ -148,21 +150,21 @@
 .badge-lg { padding: 0.4rem 1.1rem; font-size: var(--text-sm); }
 
 .badge-primary {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60A5FA;
-  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(225, 6, 0, 0.12);
+  color: #FF2A23;
+  border-color: rgba(225, 6, 0, 0.3);
 }
 
 .badge-cyan {
-  background: rgba(6, 182, 212, 0.15);
-  color: #22D3EE;
-  border-color: rgba(6, 182, 212, 0.3);
+  background: rgba(225, 6, 0, 0.12);
+  color: #FF2A23;
+  border-color: rgba(225, 6, 0, 0.3);
 }
 
 .badge-purple {
-  background: rgba(139, 92, 246, 0.15);
-  color: #A78BFA;
-  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(225, 6, 0, 0.12);
+  color: #FF2A23;
+  border-color: rgba(225, 6, 0, 0.3);
 }
 
 .badge-success {
@@ -172,9 +174,9 @@
 }
 
 .badge-danger {
-  background: rgba(244, 63, 94, 0.15);
-  color: #FB7185;
-  border-color: rgba(244, 63, 94, 0.3);
+  background: rgba(225, 6, 0, 0.15);
+  color: #FF2A23;
+  border-color: rgba(225, 6, 0, 0.3);
 }
 
 .badge-outline {
